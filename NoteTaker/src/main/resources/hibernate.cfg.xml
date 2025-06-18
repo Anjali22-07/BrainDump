@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+		
+		<!-- first tag will be of -->
+		<hibernate-configuration>
+		
+		<!-- session factory is an interface factory for providing sessions -->		
+		<session-factory>
+		<!-- first we need  the driver of database property -->
+		
+		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/myhiber</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">Anjali</property>
+		
+		<!-- because all database has some difference in their queries-so we will be changing the dialect -->
+		
+	<!--  <property name="dialect">org.hibernate.dialect.MySQLDialect</property> -->
+		
+		<!-- to create table automatically-we use a property hbm2ddl.auto -->
+		<!-- there are multiple functions-if we use create it will create the table each time. so we use update which means that it will create the table if it does not exist and will update it if the table exists -->
+		
+		<property name="hbm2ddl.auto">update</property>
+		
+		<!-- to view the queries fired -->
+		
+		<property name="show_sql">true</property>
+		
+		<!--  we can also format sql - with the help of format_sql property -presents the query in a formated way -->
+		<property name="format_sql">true</property>
+		
+		<!-- to update hibernate about the class to use it as an entity -->
+		
+		<mapping class="com.entities.Note"/>	
+		
+		</session-factory>
+		
+		</hibernate-configuration>
